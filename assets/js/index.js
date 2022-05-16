@@ -19,8 +19,21 @@ const loadCharData = () => {
   backgroundItems.value = playerChar.background;
   demeanorItems.value = playerChar.demeanor;
   fightingStyle.value = playerChar.fightingStyle;
-  console.log(document.getElementById(playerChar.training));
   document.getElementById(playerChar.training).checked = true;
+
+  // stats
+  // pos
+  Object.values(playerChar.posStats).map((stat) => {
+    if (document.getElementById(stat) !== null) {
+      document.getElementById(stat).checked = true;
+    }
+  });
+  //neg
+  Object.values(playerChar.negStats).map((stat) => {
+    if (document.getElementById(stat) !== null) {
+      document.getElementById(stat).checked = true;
+    }
+  });
 };
 
 // get playbook
@@ -70,6 +83,40 @@ $(document).ready(function () {
     console.log(e.target.value);
     let training = e.target.value;
     playerChar.training = training;
+    saveChar();
+  });
+});
+
+// get status effects
+//pos
+$(document).ready(function () {
+  $(".pos-stats").change(function (e) {
+    e.preventDefault();
+    let posStats = $(".pos-stats:checked").map(function (stat) {
+      return this.name;
+    });
+    if (posStats.length > 0) {
+      console.log(posStats);
+      playerChar.posStats = posStats;
+    } else {
+      playerChar.posStats = [];
+    }
+    saveChar();
+  });
+});
+//neg
+$(document).ready(function () {
+  $(".neg-stats").change(function (e) {
+    e.preventDefault();
+    let negStats = $(".neg-stats:checked").map(function (stat) {
+      return this.name;
+    });
+    if (negStats.length > 0) {
+      console.log(negStats);
+      playerChar.negStats = negStats;
+    } else {
+      playerChar.negStats = [];
+    }
     saveChar();
   });
 });
