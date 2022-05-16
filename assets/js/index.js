@@ -15,6 +15,7 @@ const loadCharData = () => {
   if (playerChar === {}) {
     return false;
   }
+  $("#name").val(playerChar.name);
   playbookItems.value = playerChar.playbook;
   backgroundItems.value = playerChar.background;
   demeanorItems.value = playerChar.demeanor;
@@ -35,6 +36,16 @@ const loadCharData = () => {
     }
   });
 };
+
+// get name
+$(function () {
+  $("#name").change(function (e) {
+    e.preventDefault();
+    let name = $("#name").val();
+    playerChar.name = name;
+    saveChar();
+  });
+});
 
 // get playbook
 $(document).ready(function () {
