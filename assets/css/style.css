@@ -1,0 +1,15 @@
+html {
+  background-color: antiquewhite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: garamond, Times, serif;
+}
+
+.border-box {
+  border: 1px solid #29384b;
+}

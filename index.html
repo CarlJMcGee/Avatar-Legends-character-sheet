@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unoffical Avatar Legends Character Sheet</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+      integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body class="columns is-multiline">
+    <header
+      class="column is-full m-1 columns is-centered has-background-link p-3"
+    >
+      <h1 class="column is-half has-text-centered has-text-white title">
+        Avatar Legends
+      </h1>
+    </header>
+    <main class="section columns is-multiline">
+      <section class="column columns is is-full">
+        <!-- playbook and background -->
+        <div class="column container columns is-multiline">
+          <div class="playbook column columns dropdown is-full">
+            <div class="dropdown-trigger">
+              <button
+                class="button playbook-button"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu"
+              >
+                <span id="playbook-title">Playbook</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div
+              class="dropdown-menu playbook-items"
+              id="dropdown-menu"
+              role="menu"
+            >
+              <div class="dropdown-content">
+                <div class="dropdown-item">The Adamant</div>
+                <div class="dropdown-item">The Bold</div>
+                <div class="dropdown-item">The Guardian</div>
+                <div class="dropdown-item">The Hammer</div>
+                <div class="dropdown-item">The Icon</div>
+                <div class="dropdown-item">The Idealist</div>
+                <div class="dropdown-item">The Pillar</div>
+                <div class="dropdown-item">The Prodigy</div>
+                <div class="dropdown-item">The Rogue</div>
+                <div class="dropdown-item">The Successor</div>
+                <hr class="dropdown-divider" />
+                <div class="dropdown-item">The Destined</div>
+                <div class="dropdown-item">The Elder</div>
+                <div class="dropdown-item">The Foundling</div>
+                <div class="dropdown-item">The Razor</div>
+              </div>
+            </div>
+          </div>
+          <h3 class="column py-0 pl-0">Background:</h3>
+          <div
+            class="background column is-full my-1 py-1 columns is-multiline box has-background-link has-text-white"
+          >
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Military" id="Military" />
+              Military
+            </label>
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Monastic" id="Monastic" />
+              Monastic
+            </label>
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Outlaw" id="Outlaw" />
+              Outlaw
+            </label>
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Privileged" id="Privileged" />
+              Privileged
+            </label>
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Urban" id="Urban" />
+              Urban
+            </label>
+            <label class="checkbox is-one-third px-2 py-0 is-size-7 column">
+              <input type="checkbox" name="Wilderness" id="Wilderness" />
+              Wilderness
+            </label>
+          </div>
+          <h3 class="column py-0 pl-0">Demeanor:</h3>
+          <div
+            class="demeanor column is-full my-1 py-1 columns is-multiline box has-background-link has-text-white"
+          >
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Childish
+            </label>
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Fierce
+            </label>
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Imperious
+            </label>
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Overbearing
+            </label>
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Proper
+            </label>
+            <label class="checkbox is-half is-size-7 px-1 py-0 column">
+              <input type="checkbox" name="" id="" />
+              Strange
+            </label>
+          </div>
+          <textarea
+            name="fighting-style"
+            id="fighting-style"
+            cols="10"
+            rows="2"
+            class="textarea column m-0"
+            placeholder="Fighting Style"
+          ></textarea>
+        </div>
+        <!-- training -->
+        <div class="column is-three-fifths container columns is-multiline">
+          <h3 class="is-size-4 column is is-full has-text-centered">
+            Your Training
+          </h3>
+          <ul class="column columns">
+            <li class="column is-size-2">
+              <input type="radio" name="water" id="water" />
+              💧
+            </li>
+            <li class="column is-size-2">
+              <input type="radio" name="earth" id="earth" />
+              ⛰️
+            </li>
+            <li class="column is-size-2">
+              <input type="radio" name="fire" id="fire" />
+              🔥
+            </li>
+            <li class="column is-size-2">
+              <input type="radio" name="air" id="air" />
+              🌪️
+            </li>
+            <li class="column is-size-2">
+              <input type="radio" name="weapons" id="weapons" />
+              ⚔️
+            </li>
+            <li class="column is-size-2">
+              <input type="radio" name="tech" id="tech" />
+              ⚙️
+            </li>
+          </ul>
+        </div>
+        <!-- statuses -->
+        <div class="column container columns is-multiline">
+          <!-- positive -->
+          <div class="container column pr-0">
+            <h3 class="column">Positive</h3>
+            <div class="column columns is-multiline is-size-7">
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="empowered" id="empowered" />
+                Empowered
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="favored" id="favored" />
+                Favored
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="inspired" id="inspired" />
+                Inspired
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="prepared" id="prepared" />
+                Prepared
+              </label>
+            </div>
+          </div>
+          <!-- negative -->
+          <div class="container column pl-0">
+            <h3 class="column">Positive</h3>
+            <div class="column columns is-multiline is-size-7">
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="doomed" id="doomed" />
+                Doomed
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="impaired" id="impaired" />
+                Impaired
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="trapped" id="trapped" />
+                Trapped
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="stunned" id="stunned" />
+                Stunned
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="column">
+        <div class="box has-background-info-light columns is-centered">
+          <div class="column">
+            <h3>Stats</h3>
+          </div>
+          <div class="column">Balance</div>
+          <div class="column">Conditions</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
