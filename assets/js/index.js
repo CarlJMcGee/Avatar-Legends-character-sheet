@@ -5,36 +5,43 @@ const demeanorItems = document.querySelector("#demeanor");
 const fightingStyle = document.querySelector("#fighting-style");
 const trainingItems = document.querySelector(".training");
 
-let playerChar = JSON.parse(localStorage.getItem("character")) || {};
+let playerChar = localStorage.getItem("character")
+  ? JSON.parse(localStorage.getItem("character"))
+  : {};
 
 const saveChar = () => {
   localStorage.setItem("character", JSON.stringify(playerChar));
 };
 
 const loadCharData = () => {
-  if (playerChar === {}) {
-    return false;
-  }
-  $("#name").val(playerChar.name);
-  playbookItems.value = playerChar.playbook;
-  backgroundItems.value = playerChar.background;
-  demeanorItems.value = playerChar.demeanor;
-  fightingStyle.value = playerChar.fightingStyle;
-  document.getElementById(playerChar.training).checked = true;
+  if (Object.entries(playerChar).length > 0) {
+    $("#name").val(playerChar.name);
+    playbookItems.value = playerChar.playbook;
+    backgroundItems.value = playerChar.background;
+    demeanorItems.value = playerChar.demeanor;
+    playerChar.fightingStyle
+      ? (fightingStyle.value = playerChar.fightingStyle)
+      : (fightingStyle.value = "");
+    document.getElementById(playerChar.training).checked = true;
 
-  // stats
-  // pos
-  Object.values(playerChar.posStats).map((stat) => {
-    if (document.getElementById(stat) !== null) {
-      document.getElementById(stat).checked = true;
+    // stats
+    // pos
+    if (playerChar.posStats) {
+      Object.values(playerChar.posStats).map((stat) => {
+        if (document.getElementById(stat) !== null) {
+          document.getElementById(stat).checked = true;
+        }
+      });
     }
-  });
-  //neg
-  Object.values(playerChar.negStats).map((stat) => {
-    if (document.getElementById(stat) !== null) {
-      document.getElementById(stat).checked = true;
+    //neg
+    if (playerChar.negStats) {
+      Object.values(playerChar.negStats).map((stat) => {
+        if (document.getElementById(stat) !== null) {
+          document.getElementById(stat).checked = true;
+        }
+      });
     }
-  });
+  }
 };
 
 // get name
@@ -91,7 +98,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(trainingItems).change(function (e) {
     e.preventDefault();
-    console.log(e.target.value);
     let training = e.target.value;
     playerChar.training = training;
     saveChar();
