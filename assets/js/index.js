@@ -1,5 +1,8 @@
 const playbookMenu = document.querySelector(".playbook");
 const playbookItems = document.querySelector(".playbook-items");
+const backgroundItems = document.querySelector("#background");
+const demeanorItems = document.querySelector("#demeanor");
+const fightingStyle = document.querySelector("#fighting-style");
 
 let playerChar = {};
 
@@ -13,13 +16,35 @@ $(document).ready(function () {
     e.preventDefault();
     let playbook = $("select.playbook-items option:selected").text();
     playerChar.playbook = playbook;
-    console.log(playerChar);
+    console.dir(playerChar);
   });
 });
 
+// get background
 $(document).ready(function () {
-  $(".background").change(function (e) {
+  $(backgroundItems).change(function (e) {
     e.preventDefault();
-    let background = $(background);
+    let background = $("select#background option:selected").text();
+    playerChar.background = background;
+    console.dir(playerChar);
+  });
+});
+
+// get demeanor
+$(document).ready(function () {
+  $(demeanorItems).change(function (e) {
+    e.preventDefault();
+    let demeanor = $("select#demeanor option:selected").text();
+    playerChar.demeanor = demeanor;
+    console.dir(playerChar);
+  });
+});
+
+// get fighting style
+$(document).ready(function () {
+  $(fightingStyle).change(function (e) {
+    e.preventDefault();
+    let fighting = fightingStyle.value;
+    console.log(fighting);
   });
 });
