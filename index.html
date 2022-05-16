@@ -45,42 +45,26 @@
       <section class="column columns is is-full">
         <!-- playbook and background -->
         <div class="column container columns is-multiline">
-          <div class="playbook column columns dropdown is-full">
-            <div class="dropdown-trigger">
-              <button
-                class="button playbook-button"
-                aria-haspopup="true"
-                aria-controls="dropdown-menu"
-              >
-                <span id="playbook-title">Playbook</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div
-              class="dropdown-menu playbook-items"
-              id="dropdown-menu"
-              role="menu"
-            >
-              <div class="dropdown-content">
-                <div class="dropdown-item">The Adamant</div>
-                <div class="dropdown-item">The Bold</div>
-                <div class="dropdown-item">The Guardian</div>
-                <div class="dropdown-item">The Hammer</div>
-                <div class="dropdown-item">The Icon</div>
-                <div class="dropdown-item">The Idealist</div>
-                <div class="dropdown-item">The Pillar</div>
-                <div class="dropdown-item">The Prodigy</div>
-                <div class="dropdown-item">The Rogue</div>
-                <div class="dropdown-item">The Successor</div>
-                <hr class="dropdown-divider" />
-                <div class="dropdown-item">The Destined</div>
-                <div class="dropdown-item">The Elder</div>
-                <div class="dropdown-item">The Foundling</div>
-                <div class="dropdown-item">The Razor</div>
-              </div>
-            </div>
+          <div class="playbook select">
+            <select class="playbook-items">
+              <option class="dropdown-item book" selected disabled>
+                Playbook
+              </option>
+              <option class="dropdown-item book">The Adamant</option>
+              <option class="dropdown-item book">The Bold</option>
+              <option class="dropdown-item book">The Guardian</option>
+              <option class="dropdown-item book">The Hammer</option>
+              <option class="dropdown-item book">The Icon</option>
+              <option class="dropdown-item book">The Idealist</option>
+              <option class="dropdown-item book">The Pillar</option>
+              <option class="dropdown-item book">The Prodigy</option>
+              <option class="dropdown-item book">The Rogue</option>
+              <option class="dropdown-item book">The Successor</option>
+              <option class="dropdown-item book">The Destined</option>
+              <option class="dropdown-item book">The Elder</option>
+              <option class="dropdown-item book">The Foundling</option>
+              <option class="dropdown-item book">The Razor</option>
+            </select>
           </div>
           <h3 class="column py-0 pl-0">Background:</h3>
           <div

@@ -1,7 +1,5 @@
 const playbookMenu = document.querySelector(".playbook");
-const playbookBtn = document.querySelector(".playbook-button");
 const playbookItems = document.querySelector(".playbook-items");
-const playbookTitle = document.querySelector("#playbook-title");
 
 let playerChar = {};
 
@@ -9,14 +7,19 @@ const saveChar = () => {
   localStorage.setItem("character", JSON.stringify(playerChar));
 };
 
-$(playbookBtn).click(function (e) {
-  e.preventDefault();
-  playbookMenu.classList.toggle("is-active");
+// get playbook
+$(document).ready(function () {
+  $(playbookItems).change(function (e) {
+    e.preventDefault();
+    let playbook = $("select.playbook-items option:selected").text();
+    playerChar.playbook = playbook;
+    console.log(playerChar);
+  });
 });
 
-$(playbookItems).click(function (e) {
-  e.preventDefault();
-  playbookTitle.innerText = e.target.innerText;
-  playbookMenu.classList.toggle("is-active");
-  playerChar.playbook = playbookTitle.innerText;
+$(document).ready(function () {
+  $(".background").change(function (e) {
+    e.preventDefault();
+    let background = $(background);
+  });
 });
