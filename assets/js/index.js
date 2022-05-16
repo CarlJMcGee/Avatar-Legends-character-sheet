@@ -3,11 +3,24 @@ const playbookItems = document.querySelector(".playbook-items");
 const backgroundItems = document.querySelector("#background");
 const demeanorItems = document.querySelector("#demeanor");
 const fightingStyle = document.querySelector("#fighting-style");
+const trainingItems = document.querySelector(".training");
 
-let playerChar = {};
+let playerChar = JSON.parse(localStorage.getItem("character")) || {};
 
 const saveChar = () => {
   localStorage.setItem("character", JSON.stringify(playerChar));
+};
+
+const loadCharData = () => {
+  if (playerChar === {}) {
+    return false;
+  }
+  playbookItems.value = playerChar.playbook;
+  backgroundItems.value = playerChar.background;
+  demeanorItems.value = playerChar.demeanor;
+  fightingStyle.value = playerChar.fightingStyle;
+  console.log(document.getElementById(playerChar.training));
+  document.getElementById(playerChar.training).checked = true;
 };
 
 // get playbook
@@ -16,7 +29,7 @@ $(document).ready(function () {
     e.preventDefault();
     let playbook = $("select.playbook-items option:selected").text();
     playerChar.playbook = playbook;
-    console.dir(playerChar);
+    saveChar();
   });
 });
 
@@ -26,7 +39,7 @@ $(document).ready(function () {
     e.preventDefault();
     let background = $("select#background option:selected").text();
     playerChar.background = background;
-    console.dir(playerChar);
+    saveChar();
   });
 });
 
@@ -36,7 +49,7 @@ $(document).ready(function () {
     e.preventDefault();
     let demeanor = $("select#demeanor option:selected").text();
     playerChar.demeanor = demeanor;
-    console.dir(playerChar);
+    saveChar();
   });
 });
 
@@ -45,6 +58,20 @@ $(document).ready(function () {
   $(fightingStyle).change(function (e) {
     e.preventDefault();
     let fighting = fightingStyle.value;
-    console.log(fighting);
+    playerChar.fightingStyle = fighting;
+    saveChar();
   });
 });
+
+// get training style
+$(document).ready(function () {
+  $(trainingItems).change(function (e) {
+    e.preventDefault();
+    console.log(e.target.value);
+    let training = e.target.value;
+    playerChar.training = training;
+    saveChar();
+  });
+});
+
+loadCharData();

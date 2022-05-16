@@ -46,44 +46,44 @@
         <!-- playbook and background -->
         <div class="column container columns is-multiline">
           <div class="playbook select">
-            <select class="playbook-items">
-              <option class="book" selected disabled>Playbook</option>
-              <option class="book">The Adamant</option>
-              <option class="book">The Bold</option>
-              <option class="book">The Guardian</option>
-              <option class="book">The Hammer</option>
-              <option class="book">The Icon</option>
-              <option class="book">The Idealist</option>
-              <option class="book">The Pillar</option>
-              <option class="book">The Prodigy</option>
-              <option class="book">The Rogue</option>
-              <option class="book">The Successor</option>
-              <option class="book">The Destined</option>
-              <option class="book">The Elder</option>
-              <option class="book">The Foundling</option>
-              <option class="book">The Razor</option>
+            <select class="playbook-items" id="playbook">
+              <option selected disabled>Playbook</option>
+              <option value="The Adamant">The Adamant</option>
+              <option value="The Bold">The Bold</option>
+              <option value="The Guardian">The Guardian</option>
+              <option value="The Hammer">The Hammer</option>
+              <option value="The Icon">The Icon</option>
+              <option value="The Idealist">The Idealist</option>
+              <option value="The Pillar">The Pillar</option>
+              <option value="The Prodigy">The Prodigy</option>
+              <option value="The Rogue">The Rogue</option>
+              <option value="The Successor">The Successor</option>
+              <option value="The Destined">The Destined</option>
+              <option value="The Elder">The Elder</option>
+              <option value="The Foundling">The Foundling</option>
+              <option value="The Razor">The Razor</option>
             </select>
           </div>
           <div class="background select">
             <select class="" name="" id="background">
               <option selected disabled>Background</option>
-              <option>Military</option>
-              <option>Monastic</option>
-              <option>Outlaw</option>
-              <option>Privileged</option>
-              <option>Urban</option>
-              <option>Wilderness</option>
+              <option value="Military">Military</option>
+              <option value="Monastic">Monastic</option>
+              <option value="Outlaw">Outlaw</option>
+              <option value="Privileged">Privileged</option>
+              <option value="Urban">Urban</option>
+              <option value="Wilderness">Wilderness</option>
             </select>
           </div>
           <div class="demeanor select">
             <select name="" id="demeanor">
               <option selected disabled>Demeanor</option>
-              <option>Childish</option>
-              <option>Fierce</option>
-              <option>Imperious</option>
-              <option>Overbearing</option>
-              <option>Proper</option>
-              <option>Strange</option>
+              <option value="Childish">Childish</option>
+              <option value="Fierce">Fierce</option>
+              <option value="Imperious">Imperious</option>
+              <option value="Overbearing">Overbearing</option>
+              <option value="Proper">Proper</option>
+              <option value="Strange">Strange</option>
             </select>
           </div>
           <textarea
@@ -91,41 +91,56 @@
             id="fighting-style"
             cols="10"
             rows="2"
-            class="textarea column m-0"
+            class="textarea m-0"
             placeholder="Fighting Style"
           ></textarea>
         </div>
         <!-- training -->
-        <div class="column is-three-fifths container columns is-multiline">
+        <div class="column is-three-fifths container columns is-multiline px-5">
           <h3 class="is-size-4 column is is-full has-text-centered">
             Your Training
           </h3>
-          <ul class="column columns">
-            <li class="column is-size-2">
-              <input type="radio" name="water" id="water" />
+          <div class="training control column columns">
+            <label class="radio column px-0 is-size-2">
+              <input type="radio" name="training" id="water" value="water" />
               💧
-            </li>
-            <li class="column is-size-2">
-              <input type="radio" name="earth" id="earth" />
+            </label>
+
+            <label class="radio column px-0 is-size-2">
+              <input type="radio" name="training" id="earth" value="earth" />
               ⛰️
-            </li>
-            <li class="column is-size-2">
-              <input type="radio" name="fire" id="fire" />
+            </label>
+
+            <label class="radio column px-0 is-size-2">
+              <input type="radio" name="training" id="fire" value="fire" />
               🔥
-            </li>
-            <li class="column is-size-2">
-              <input type="radio" name="air" id="air" />
+            </label>
+
+            <label class="radio column px-0 is-size-2">
+              <input type="radio" name="training" id="air" value="air" />
               🌪️
-            </li>
-            <li class="column is-size-2">
-              <input type="radio" name="weapons" id="weapons" />
+            </label>
+
+            <label class="radio column px-0 is-size-2">
+              <input
+                type="radio"
+                name="training"
+                id="weapons"
+                value="weapons"
+              />
               ⚔️
-            </li>
-            <li class="column is-size-2">
-              <input type="radio" name="tech" id="tech" />
+            </label>
+
+            <label class="radio column px-0 is-size-2">
+              <input
+                type="radio"
+                name="training"
+                id="technology"
+                value="technology"
+              />
               ⚙️
-            </li>
-          </ul>
+            </label>
+          </div>
         </div>
         <!-- statuses -->
         <div class="column container columns is-multiline">
