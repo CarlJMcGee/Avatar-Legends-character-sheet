@@ -150,9 +150,11 @@
           </div>
         </div>
         <!-- statuses -->
-        <div class="column container columns is-multiline">
+        <div
+          class="column container columns is-multiline has-text-white has-background-link m-2 p-1"
+        >
           <!-- positive -->
-          <div class="container column pr-0">
+          <div class="container column p-0">
             <h3 class="column">Positive</h3>
             <div class="column columns is-multiline is-size-7">
               <label class="checkbox column is-full">
@@ -194,7 +196,7 @@
             </div>
           </div>
           <!-- negative -->
-          <div class="container column pl-0">
+          <div class="container column p-0">
             <h3 class="column">Negative</h3>
             <div class="column columns is-multiline is-size-7">
               <label class="checkbox column is-full">
@@ -238,12 +240,115 @@
         </div>
       </section>
       <section class="column">
-        <div class="box has-background-info-light columns is-centered">
-          <div class="column">
-            <h3>Stats</h3>
+        <div
+          class="box has-background-info-light columns is-centered has-text-centered"
+        >
+          <div class="column columns is-multiline">
+            <h3 class="column is-full is-size-4">Stats</h3>
+            <div class="column columns is-full has-text-left">
+              <div class="select">
+                <select name="" id="">
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                  <option value="-1">-1</option>
+                </select>
+              </div>
+              <h3 class="column">Creativity</h3>
+            </div>
+            <div class="column columns is-full has-text-left">
+              <div class="select">
+                <select name="" id="">
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                  <option value="-1">-1</option>
+                </select>
+              </div>
+              <h3 class="column">Focus</h3>
+            </div>
+            <div class="column columns is-full has-text-left">
+              <div class="select">
+                <select name="" id="">
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                  <option value="-1">-1</option>
+                </select>
+              </div>
+              <h3 class="column">Harmony</h3>
+            </div>
+            <div class="column columns is-full has-text-left">
+              <div class="select">
+                <select name="" id="">
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                  <option value="-1">-1</option>
+                </select>
+              </div>
+              <h3 class="column">Passion</h3>
+            </div>
+            <div class="container">
+              <h3>Fatigue</h3>
+              <div class="control">
+                <input type="radio" name="" id="" class="mx-3" />
+                <input type="radio" name="" id="" class="mx-3" />
+                <input type="radio" name="" id="" class="mx-3" />
+                <input type="radio" name="" id="" class="mx-3" />
+                <input type="radio" name="" id="" class="mx-3" />
+              </div>
+            </div>
           </div>
-          <div class="column">Balance</div>
-          <div class="column">Conditions</div>
+          <div class="column">
+            <h3 class="is-size-4">Balance</h3>
+            <br />
+            <br />
+            <br />
+            <h3 class="has-text-left is-size-3">Principle 1</h3>
+            <div class="control">
+              <input type="radio" name="" id="" class="mx-3" />
+              <input type="radio" name="" id="" class="mx-3" />
+              <input type="radio" name="" id="" class="mx-3" />
+              <input type="radio" name="" id="" class="mx-3" />
+              <input type="radio" name="" id="" class="mx-3" />
+            </div>
+            <h3 class="has-text-right is-size-3">Principle 2</h3>
+          </div>
+          <div class="column">
+            <h3 class="is-size-4">Conditions</h3>
+            <br />
+            <div class="container columns is-multiline has-text-left pl-6">
+              <label for="" class="checkbox column is-full">
+                <input type="checkbox" name="" id="Afraid" class="" />
+                <span>Afraid:</span> take -2 to intimidate and call someone out
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="" id="Angry" class="" />
+                <span class="is-size-5">Angry:</span> take -2 to guide and
+                comfort and assess a situation
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="" id="Guilty" class="" />
+                <span class="is-size-5">Guilty:</span> take -2 to push your luck
+                and deny a callout
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="" id="Insecure" class="" />
+                <span class="is-size-5">Insecure:</span> take -2 to trick and
+                resist shifting your balance
+              </label>
+              <label class="checkbox column is-full">
+                <input type="checkbox" name="" id="Trouble" class="" />
+                <span class="is-size-5">Trouble:</span> take -2 to plead and
+                rely on your skills or training
+              </label>
+            </div>
+          </div>
         </div>
       </section>
     </main>
