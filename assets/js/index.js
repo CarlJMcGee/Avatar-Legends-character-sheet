@@ -42,6 +42,9 @@ const loadCharData = () => {
       });
     }
   }
+
+  // playbook
+  // loadPlaybook(playerChar.playbook);
 };
 
 // get name
@@ -138,4 +141,118 @@ $(document).ready(function () {
   });
 });
 
+// fill playbook details
+
+// playbook data
+const adamant = () => {
+  // details
+  var details = document.createElement("p");
+  details.className = "column";
+  details.innerHTML = `There's only one person you often let past your emotional walls. <br/>
+<span class="has-text-weight-bold">Name your lodestar</span> (choose a PC to start):<input type: "text"> 
+<br/>
+<br/>
+You can shift your lodestar to someone new when they <span class="has-text-weight-bold">guide and comfort</span>
+you and you open up to them, or when you guide and comfort them and 
+they open up to you. If you do choose to shift your lodestar, clear a condition. 
+<br/> 
+<br/>
+When you <span class="has-text-weight-bold">shut down someone vulnerable to harsh words or icy silence</span>, 
+shift your balance toward Results and roll with Results. On a hit, they mark a 
+condition and you may clear the same condition. On a 10+, they also cannot 
+shift your balance or <span class="has-text-weight-bold">call you out</span> for the rest of the scene. On a miss, they 
+have exactly the right retort; mark a condition and they shift your balance. 
+You cannot use this on your lodestar. 
+<br/>
+<br/>
+When your lodestar <span class="has-text-weight-bold">shifts your balance or calls you out</span>, you cannot resist 
+it. Treat an NPC lodestar calling you out as if you rolled a 10+, and a PC 
+lodestar calling you out as if they rolled a 10+. 
+<br/>
+<br/>
+When you <span class="has-text-weight-bold">consult your lodestar for advice on a problem</span> (or permission to 
+use your preferred solution), roll with Restraint. On a 10+ take all three; on 
+a 7-9 they choose two:
+<br/>
+• You see the wisdom of their advice. They shift your balance; follow their 
+advice and they shift your balance again. 
+<br/>
+• The conversation bolsters you. Clear a condition or 2-fatigue.
+<br/>
+• They feel at ease offering their opinion. They clear a condition or 
+2-fatigue.
+<br/>
+<br/>
+On a miss, something about their advice infuriates you. Mark a condition or 
+have the GM shift your balance twice.`;
+
+  document.querySelector("#playbook-details").append(details);
+};
+
+// playbook
+const loadPlaybook = (playbook) => {
+  switch (playbook) {
+    case "The Adamant":
+      adamant();
+      break;
+
+    case "The Bold":
+      bold();
+      break;
+
+    case "The Guardian":
+      guardian();
+      break;
+
+    case "The Hammer":
+      hammer();
+      break;
+
+    case "The Icon":
+      icon();
+      break;
+
+    case "The Idealist":
+      idealist();
+      break;
+
+    case "The Pillar":
+      pillar();
+      break;
+
+    case "The Prodigy":
+      prodigy();
+      break;
+
+    case "The Rogue":
+      rouge();
+      break;
+
+    case "The Successor":
+      successor();
+      break;
+
+    case "The Destined":
+      destined();
+      break;
+
+    case "The Elder":
+      elder();
+      break;
+
+    case "The Foundling":
+      foundling();
+      break;
+
+    case "The Razor":
+      razor();
+      break;
+
+    default:
+      break;
+  }
+};
+
 loadCharData();
+
+adamant();
