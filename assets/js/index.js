@@ -30,10 +30,10 @@ const loadCharData = () => {
       : (fightingStyle.value = "");
     document.getElementById(playerChar.training).checked = true;
 
-    // stats
+    // statuses
     // pos
     if (playerChar.posStats) {
-      Object.values(playerChar.posStats).map((stat) => {
+      playerChar.posStats.map((stat) => {
         if (document.getElementById(stat) !== null) {
           document.getElementById(stat).checked = true;
         }
@@ -41,7 +41,7 @@ const loadCharData = () => {
     }
     //neg
     if (playerChar.negStats) {
-      Object.values(playerChar.negStats).map((stat) => {
+      playerChar.negStats.map((stat) => {
         if (document.getElementById(stat) !== null) {
           document.getElementById(stat).checked = true;
         }
@@ -55,16 +55,43 @@ const loadCharData = () => {
     stats.passion.value = playerChar.stats.passion;
     // fatigue
     if (playerChar.fatigue) {
-      Object.values(playerChar.fatigue).map((marker) => {
+      playerChar.fatigue.map((marker) => {
         if (document.querySelector(`input[name='${marker}']`)) {
           document.querySelector(`input[name='${marker}']`).checked = true;
         }
       });
     }
+
+    // balance
+    if (
+      document.querySelector(`[name='balance'][value='${playerChar.balance}']`)
+    ) {
+      document.querySelector(
+        `[name='balance'][value='${playerChar.balance}']`
+      ).checked = true;
+    }
+  }
+
+  // conditions
+  if (playerChar.conditions) {
+    playerChar.conditions.map(function (condition) {
+      if (document.querySelector(`#${condition}`)) {
+        document.querySelector(`#${condition}`).checked = true;
+      }
+    });
   }
 
   // playbook
   loadPlaybook(playerChar.playbook);
+
+  // moves
+  if (playerChar.moves) {
+    playerChar.moves.map(function (move) {
+      if (document.querySelector(`.moves[name="${move}"`)) {
+        document.querySelector(`.moves[name="${move}"`).checked = true;
+      }
+    });
+  }
 };
 
 // get name
@@ -133,14 +160,10 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".pos-stats").change(function (e) {
     e.preventDefault();
+    playerChar.posStats = [];
     let posStats = $(".pos-stats:checked").map(function (stat) {
-      return this.name;
+      playerChar.posStats.push(this.name);
     });
-    if (posStats.length > 0) {
-      playerChar.posStats = posStats;
-    } else {
-      playerChar.posStats = [];
-    }
     saveChar();
   });
 });
@@ -148,14 +171,10 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".neg-stats").change(function (e) {
     e.preventDefault();
+    playerChar.negStats = [];
     let negStats = $(".neg-stats:checked").map(function (stat) {
-      return this.name;
+      playerChar.negStats.push(this.name);
     });
-    if (negStats.length > 0) {
-      playerChar.negStats = negStats;
-    } else {
-      playerChar.negStats = [];
-    }
     saveChar();
   });
 });
@@ -198,16 +217,35 @@ $(function () {
   });
 });
 
-// fatigue
+// get fatigue
 $(function () {
   $(".fatigue-markers").change(function (e) {
     e.preventDefault();
+    playerChar.fatigue = [];
     let fatigue = $(".fatigue-markers:checked").map(function (marker) {
-      return this.name;
+      playerChar.fatigue.push(this.name);
     });
-    fatigue.length > 0
-      ? (playerChar.fatigue = fatigue)
-      : (playerChar.fatigue = []);
+    saveChar();
+  });
+});
+
+// get balance
+$(function () {
+  $("input[name='balance']").change(function (e) {
+    e.preventDefault();
+    playerChar.balance = this.value;
+    saveChar();
+  });
+});
+
+// get conditions
+$(function () {
+  $(".conditions").change(function (e) {
+    e.preventDefault();
+    playerChar.conditions = [];
+    let conditions = $(".conditions:checked").map(function (condition) {
+      playerChar.conditions.push(this.id);
+    });
     saveChar();
   });
 });
@@ -270,8 +308,8 @@ have the GM shift your balance twice.`;
   // moves
   $("#playbook-detail-title").text(`The Lodestar`);
   $("#moves-container").append(`  
-          <label for="" class="checkbox column is-full">
-            <input type="checkbox" class="moves" name="this was a victory" id="" />
+          <label for="this was a victory" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="this was a victory" id="this was a victory" />
             <span class="is-size-5 is-uppercase">This Was a Victory</span>
             <p>When you reveal that you have sabotaged a building, 
 device, or vehicle right as it becomes relevant, mark 
@@ -283,8 +321,8 @@ On a miss, your action was ill-judged and something or
 someone you care about is hurt as collateral damage.</p>
           </label>
 
-          <label for="" class="checkbox column is-full">
-            <input type="checkbox" class="moves" name="takes one to know one" id="" />
+          <label for="takes one to know one" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="takes one to know one" id="takes one to know one" />
             <span class="is-size-5 is-uppercase">Takes One to Know One</span>
             <p>When you verbally needle someone by finding the 
 weaknesses in their armor, roll with Focus. On a hit, 
@@ -304,8 +342,8 @@ you any one question from the list, and you must
 answer honestly.</p>
           </label>
 
-          <label for="" class="checkbox column is-full">
-            <input type="checkbox" class="moves" name="no time for feelings" id="" />
+          <label for="no time for feelings" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="no time for feelings" id="no time for feelings" />
             <span class="is-size-5 is-uppercase has-text-">No Time For Feelings</span>
             <p>When you have equal or fewer conditions marked 
 than your highest principle, mark fatigue to push 
@@ -317,8 +355,8 @@ mark a condition to roll with conditions marked (max
 immediately proving them wrong.</p>
           </label>
 
-          <label for="" class="checkbox column is-full">
-            <input type="checkbox" class="moves" name="i don't hate you" id="" />
+          <label for="i don't hate you" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="i don't hate you" id="i don't hate you" />
             <span class="is-size-5 is-uppercase">i don't hate you</span>
             <p>When you guide and comfort someone in an awk- 
 ward, understated, or idiosyncratic fashion, roll with 
@@ -326,8 +364,8 @@ Passion instead of Harmony if you mark Insecure or
 Insecure is already marked. </p>
           </label>
 
-          <label for="" class="checkbox column is-full">
-            <input type="checkbox" class="moves" name="driven by justice" id="" />
+          <label for="driven by justice" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="driven by justice" id="driven by justice" />
             <span class="is-size-5 is-uppercase">driven by Justice</span>
             <p>Take +1 to Passion (max +3).</p>
           </label>
@@ -348,16 +386,25 @@ Insecure is already marked. </p>
       saveChar();
     });
   });
+
+  // principles
+  //save
+  playerChar.adamant.principles = [];
+  playerChar.adamant.principles.push("Restrant", "Results");
+  saveChar();
+  // load
+  $("h3#principle-1").text(playerChar.adamant.principles[0]);
+  $("h3#principle-2").text(playerChar.adamant.principles[1]);
 };
 
 // save playbook moves
 $(document).ready(function () {
   $(".moves").change(function (e) {
     e.preventDefault();
+    playerChar.moves = [];
     let moves = $(".moves:checked").map(function (move) {
-      return this.name;
+      playerChar.moves.push(this.name);
     });
-    moves.length > 0 ? (playerChar.moves = moves) : (playerChar.moves = []);
     saveChar();
   });
 });

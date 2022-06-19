@@ -1,0 +1,20 @@
+{
+  "name": "avatar-legends-character-sheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlJMcGee/Avatar-Legends-character-sheet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlJMcGee/Avatar-Legends-character-sheet/issues"
+  },
+  "homepage": "https://github.com/CarlJMcGee/Avatar-Legends-character-sheet#readme"
+}
