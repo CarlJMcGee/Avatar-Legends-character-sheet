@@ -4,6 +4,12 @@ const backgroundItems = document.querySelector("#background");
 const demeanorItems = document.querySelector("#demeanor");
 const fightingStyle = document.querySelector("#fighting-style");
 const trainingItems = document.querySelector(".training");
+const stats = {
+  creativity: document.querySelector("select[name='creativity']"),
+  focus: document.querySelector("select[name='focus']"),
+  harmony: document.querySelector("select[name='harmony']"),
+  passion: document.querySelector("select[name='passion']"),
+};
 
 let playerChar = localStorage.getItem("character")
   ? JSON.parse(localStorage.getItem("character"))
@@ -41,10 +47,24 @@ const loadCharData = () => {
         }
       });
     }
+    // stat values
+    playerChar.stats ? playerChar.stats : (playerChar.stats = {});
+    stats.creativity.value = playerChar.stats.creativity;
+    stats.focus.value = playerChar.stats.focus;
+    stats.harmony.value = playerChar.stats.harmony;
+    stats.passion.value = playerChar.stats.passion;
+    // fatigue
+    if (playerChar.fatigue) {
+      Object.values(playerChar.fatigue).map((marker) => {
+        if (document.querySelector(`input[name='${marker}']`)) {
+          document.querySelector(`input[name='${marker}']`).checked = true;
+        }
+      });
+    }
   }
 
   // playbook
-  // loadPlaybook(playerChar.playbook);
+  loadPlaybook(playerChar.playbook);
 };
 
 // get name
@@ -63,6 +83,7 @@ $(document).ready(function () {
     e.preventDefault();
     let playbook = $("select.playbook-items option:selected").text();
     playerChar.playbook = playbook;
+    loadPlaybook(playerChar.playbook);
     saveChar();
   });
 });
@@ -116,7 +137,6 @@ $(document).ready(function () {
       return this.name;
     });
     if (posStats.length > 0) {
-      console.log(posStats);
       playerChar.posStats = posStats;
     } else {
       playerChar.posStats = [];
@@ -132,7 +152,6 @@ $(document).ready(function () {
       return this.name;
     });
     if (negStats.length > 0) {
-      console.log(negStats);
       playerChar.negStats = negStats;
     } else {
       playerChar.negStats = [];
@@ -141,15 +160,75 @@ $(document).ready(function () {
   });
 });
 
+// get stats
+// creativity
+$(document).ready(function () {
+  $(stats.creativity).change(function (e) {
+    e.preventDefault();
+    let creativityStat = $("select[name='creativity'] option:selected").text();
+    playerChar.stats.creativity = creativityStat;
+    saveChar();
+  });
+});
+// focus
+$(function () {
+  $(stats.focus).change(function (e) {
+    e.preventDefault();
+    let focusStat = $("select[name='focus'] option:selected").text();
+    playerChar.stats.focus = focusStat;
+    saveChar();
+  });
+});
+// harmony
+$(function () {
+  $(stats.harmony).change(function (e) {
+    e.preventDefault();
+    let harmonyStat = $("select[name='harmony'] option:selected").text();
+    playerChar.stats.harmony = harmonyStat;
+    saveChar();
+  });
+});
+// passion
+$(function () {
+  $(stats.passion).change(function (e) {
+    e.preventDefault();
+    let passionStat = $("select[name='passion'] option:selected").text();
+    playerChar.stats.passion = passionStat;
+    saveChar();
+  });
+});
+
+// fatigue
+$(function () {
+  $(".fatigue-markers").change(function (e) {
+    e.preventDefault();
+    let fatigue = $(".fatigue-markers:checked").map(function (marker) {
+      return this.name;
+    });
+    fatigue.length > 0
+      ? (playerChar.fatigue = fatigue)
+      : (playerChar.fatigue = []);
+    saveChar();
+  });
+});
+
 // fill playbook details
 
 // playbook data
 const adamant = () => {
+  if (!playerChar.adamant) {
+    playerChar.adamant = {};
+  }
+
+  if (document.querySelector(".adamant-details")) {
+    return;
+  }
+
   // details
   var details = document.createElement("p");
-  details.className = "column";
+  details.className = "column adamant-details";
   details.innerHTML = `There's only one person you often let past your emotional walls. <br/>
-<span class="has-text-weight-bold">Name your lodestar</span> (choose a PC to start):<input type: "text"> 
+<span class="has-text-weight-bold">Name your lodestar</span> (choose a PC to start):<input type: "text" id="lodestar"> 
 <br/>
 <br/>
 You can shift your lodestar to someone new when they <span class="has-text-weight-bold">guide and comfort</span>
@@ -187,7 +266,101 @@ On a miss, something about their advice infuriates you. Mark a condition or
 have the GM shift your balance twice.`;
 
   document.querySelector("#playbook-details").append(details);
+
+  // moves
+  $("#playbook-detail-title").text(`The Lodestar`);
+  $("#moves-container").append(`  
+          <label for="" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="this was a victory" id="" />
+            <span class="is-size-5 is-uppercase">This Was a Victory</span>
+            <p>When you reveal that you have sabotaged a building, 
+device, or vehicle right as it becomes relevant, mark 
+fatigue and roll with Passion . On a hit, your work pays 
+off, creating an opportunity for you and your allies 
+at just the right time. On a 7-9, the opportunity is 
+fleeting—act fast to stay ahead of the consequences. 
+On a miss, your action was ill-judged and something or 
+someone you care about is hurt as collateral damage.</p>
+          </label>
+
+          <label for="" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="takes one to know one" id="" />
+            <span class="is-size-5 is-uppercase">Takes One to Know One</span>
+            <p>When you verbally needle someone by finding the 
+weaknesses in their armor, roll with Focus. On a hit, 
+ask 1 question. On a 7-9, they ask 1 of you as well:
+<br/>
+• What is your principle?
+<br/>
+• What do you need to prove?
+<br/>
+• What could shake your certainty?
+<br/>
+• Whom do you care about more than you let on? 
+<br/>
+Anyone who lies or stonewalls marks 2-fatigue. On a 
+miss, your attack leaves you exposed; they may ask 
+you any one question from the list, and you must 
+answer honestly.</p>
+          </label>
+
+          <label for="" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="no time for feelings" id="" />
+            <span class="is-size-5 is-uppercase has-text-">No Time For Feelings</span>
+            <p>When you have equal or fewer conditions marked 
+than your highest principle, mark fatigue to push 
+down your feelings for the rest of the scene and 
+ignore condition penalties until the end of the scene. 
+When you resist an NPC shifting your balance, 
+mark a condition to roll with conditions marked (max 
++4). You cannot then choose to clear a condition by 
+immediately proving them wrong.</p>
+          </label>
+
+          <label for="" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="i don't hate you" id="" />
+            <span class="is-size-5 is-uppercase">i don't hate you</span>
+            <p>When you guide and comfort someone in an awk- 
+ward, understated, or idiosyncratic fashion, roll with 
+Passion instead of Harmony if you mark Insecure or 
+Insecure is already marked. </p>
+          </label>
+
+          <label for="" class="checkbox column is-full">
+            <input type="checkbox" class="moves" name="driven by justice" id="" />
+            <span class="is-size-5 is-uppercase">driven by Justice</span>
+            <p>Take +1 to Passion (max +3).</p>
+          </label>
+`);
+
+  let lodestar = $("#lodestar");
+  // load lodestar
+  playerChar.adamant.lodestar
+    ? lodestar.val(playerChar.adamant.lodestar)
+    : lodestar.val("");
+
+  //save lodestar
+  $(document).ready(function () {
+    lodestar.change(function (e) {
+      e.preventDefault();
+      playerChar.adamant.lodestar = lodestar.val();
+
+      saveChar();
+    });
+  });
 };
+
+// save playbook moves
+$(document).ready(function () {
+  $(".moves").change(function (e) {
+    e.preventDefault();
+    let moves = $(".moves:checked").map(function (move) {
+      return this.name;
+    });
+    moves.length > 0 ? (playerChar.moves = moves) : (playerChar.moves = []);
+    saveChar();
+  });
+});
 
 // playbook
 const loadPlaybook = (playbook) => {
@@ -254,5 +427,3 @@ const loadPlaybook = (playbook) => {
 };
 
 loadCharData();
-
-adamant();
