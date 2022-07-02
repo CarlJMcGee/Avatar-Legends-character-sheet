@@ -303,7 +303,7 @@ advice and they shift your balance again.
 On a miss, something about their advice infuriates you. Mark a condition or 
 have the GM shift your balance twice.`;
 
-  document.querySelector("#playbook-details").append(details);
+  // document.querySelector("#playbook-details").append(details);
 
   // moves
   $("#playbook-detail-title").text(`The Lodestar`);
