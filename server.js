@@ -8,6 +8,8 @@ const handlebars = require("express-handlebars");
 const hbs = handlebars.create({});
 const { v4: uuid } = require("uuid");
 
+const routes = require("./controllers/home-routes");
+
 const app = express();
 
 mongoose.connect(
@@ -32,10 +34,12 @@ app.use(
 );
 
 app.engine("handlebars", hbs.engine);
-app.set("views engine", "handlebars");
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Connected to Port: ${PORT}`));
