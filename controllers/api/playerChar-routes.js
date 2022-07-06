@@ -6,8 +6,9 @@ const { compare } = require("bcrypt");
 // get user's data
 router.get("/user/data", async (req, res) => {
   // get player character object
+  console.log(req.session);
   try {
-    const playerChar = await PlayerChar.findOne({ user: body.user });
+    const playerChar = await PlayerChar.findOne({ user: req.session.user.id });
 
     // if no player data exists, create a new document
     if (!playerChar) {
@@ -35,7 +36,7 @@ router.post("/user/login", async ({ body: { email, password } }, res) => {
       return;
     }
 
-    passCheck = await compare(password, user.password);
+    let passCheck = await compare(password, user.password);
 
     if (!passCheck) {
       res.status(400).send({
@@ -54,10 +55,22 @@ router.post("/user/login", async ({ body: { email, password } }, res) => {
 });
 
 // sign up
-router.post("/user/signup", async ({ body }, res) => {
+router.post("/user/signup", async ({ body, session }, res) => {
   try {
     const user = await User.create(body);
-    res.json(user);
+
+    session.regenerate((err) => {
+      session.save(() => {
+        session.user = {
+          id: user.id,
+          username: user.username,
+        };
+
+        console.log(session);
+
+        res.json(user);
+      });
+    });
   } catch (err) {
     if (err) {
       console.log(err);
