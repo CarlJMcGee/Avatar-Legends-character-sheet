@@ -2,9 +2,9 @@ const { Schema, model } = require("mongoose");
 
 const playerCharSchema = new Schema({
   user: {
-    type: String,
-    unique: true,
-    required: `Must have a username`,
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: `Must have a userId`,
   },
   playbook: {
     type: String,

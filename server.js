@@ -8,7 +8,7 @@ const handlebars = require("express-handlebars");
 const hbs = handlebars.create({});
 const { v4: uuid } = require("uuid");
 
-const routes = require("./controllers/home-routes");
+const routes = require("./controllers");
 
 const app = express();
 
