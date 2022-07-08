@@ -1,8 +1,14 @@
 <section class="column columns is-full">
   {{! login }}
-  <form class="column columns has-text-centered is-half is-multiline">
+  <form
+    class="column columns has-text-centered is-half is-multiline"
+    id="login-form"
+  >
     <h3 class="column title is-full">Existing Players</h3>
-    <div class="column columns is-centered is-multiline">
+    <div
+      class="column columns is-centered is-multiline"
+      id="login-input-container"
+    >
       {{! email / username }}
       <input
         type="text"
@@ -20,18 +26,24 @@
         id="pass-login"
         class="input column is-two-thirds my-1"
         placeholder="Password"
+        minlength="6"
+        maxlength="20"
         required
       />
       <input
         type="submit"
         value="Login"
         class="input column is-two-thirds p-0"
+        form="login-form"
       />
     </div>
   </form>
 
   {{! signup }}
-  <form class="column columns is-multiline has-text-centered is-half">
+  <form
+    class="column columns is-multiline has-text-centered is-half"
+    id="signin-form"
+  >
     <h3 class="column title is-full">New Players</h3>
     <div class="column columns is-centered is-multiline">
       {{! username }}
@@ -83,8 +95,5 @@
     </div>
   </form>
 </section>
-<section class="column">
-  {{#if (is playbook "The Razor")}}
-    Hello
-  {{/if}}
-</section>
+
+<script src="./assets/js/login.js"></script>

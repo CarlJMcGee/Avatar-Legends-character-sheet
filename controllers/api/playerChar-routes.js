@@ -81,18 +81,20 @@ router.post(
         return;
       }
 
-      session.regenerate((err) => {
-        session.save(() => {
-          session.user = {
-            id: user.id,
-            username: user.username,
-            loggedIn: true,
-          };
+      session.user = {
+        id: user.id,
+        username: user.username,
+        loggedIn: true,
+      };
+      session.save((err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
 
-          console.log(session);
+        console.log(session);
 
-          res.json(user);
-        });
+        res.json(user);
       });
     } catch (err) {
       if (err) {
@@ -107,18 +109,16 @@ router.post("/user/signup", async ({ body, session }, res) => {
   try {
     const user = await User.create(body);
 
-    session.regenerate((err) => {
-      session.save(() => {
-        session.user = {
-          id: user.id,
-          username: user.username,
-          loggedIn: true,
-        };
+    session.save(() => {
+      session.user = {
+        id: user.id,
+        username: user.username,
+        loggedIn: true,
+      };
 
-        console.log(session);
+      console.log(session);
 
-        res.json(user);
-      });
+      res.json(user);
     });
   } catch (err) {
     if (err) {
