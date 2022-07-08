@@ -81,18 +81,16 @@ router.post(
         return;
       }
 
+      session.loggedIn = true;
       session.user = {
         id: user.id,
         username: user.username,
-        loggedIn: true,
       };
       session.save((err) => {
         if (err) {
           console.error(err);
           return;
         }
-
-        console.log(session);
 
         res.json(user);
       });
@@ -109,14 +107,16 @@ router.post("/user/signup", async ({ body, session }, res) => {
   try {
     const user = await User.create(body);
 
-    session.save(() => {
-      session.user = {
-        id: user.id,
-        username: user.username,
-        loggedIn: true,
-      };
-
-      console.log(session);
+    session.loggedIn = true;
+    session.user = {
+      id: user.id,
+      username: user.username,
+    };
+    session.save((err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
 
       res.json(user);
     });
@@ -125,6 +125,16 @@ router.post("/user/signup", async ({ body, session }, res) => {
       console.log(err);
     }
   }
+});
+
+// log out
+router.post("/user/logout", ({ session }, res) => {
+  session.destroy((err) => {
+    if (err) {
+      res.code(500).send(err);
+    }
+    res.status(200).send(`User logged out`);
+  });
 });
 
 module.exports = router;

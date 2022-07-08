@@ -43,11 +43,12 @@
       </h1>
       {{#if loggedIn}}
         <a
-          class="column has-text-white is-2 has-text-centered is-offset-9 pt-0"
+          class="button column is-1 has-text-centered is-offset-9 py-2"
+          id="logout-btn"
         >Logout</a>
       {{else}}
         <a
-          class="column has-text-white is-2 has-text-centered is-offset-9 pt-0"
+          class="button column is-1 has-text-centered is-offset-9 py-2"
           href="/login"
         >Login / Signup</a>
       {{/if}}
@@ -56,5 +57,6 @@
       {{{body}}}
     </main>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/logout.js"></script>
   </body>
 </html>
