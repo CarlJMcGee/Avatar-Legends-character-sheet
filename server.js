@@ -4,8 +4,15 @@ const path = require("path");
 const MongoStore = require("connect-mongo");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
-const handlebars = require("express-handlebars");
-const hbs = handlebars.create({});
+
+const expressHandlebars = require("express-handlebars");
+const hbs = expressHandlebars.create({
+  helpers: {
+    is: function (data, playbook) {
+      return data === playbook ? true : false;
+    },
+  },
+});
 const { v4: uuid } = require("uuid");
 
 const routes = require("./controllers");

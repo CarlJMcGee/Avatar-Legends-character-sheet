@@ -34,13 +34,25 @@
   </head>
   <body class="columns is-multiline">
     <header
-      class="column is-full m-1 columns is-centered has-background-link p-3"
+      class="section column is-full m-0 columns is-multiline is-centered has-background-link p-3"
     >
-      <h1 class="column is-half has-text-centered has-text-white title">
+      <h1
+        class="column is-full is-centered has-text-centered has-text-white is-size-2 has-text-weight-bold pb-0"
+      >
         Avatar Legends
       </h1>
+      {{#if loggedIn}}
+        <a
+          class="column has-text-white is-2 has-text-centered is-offset-9 pt-0"
+        >Logout</a>
+      {{else}}
+        <a
+          class="column has-text-white is-2 has-text-centered is-offset-9 pt-0"
+          href="/login"
+        >Login / Signup</a>
+      {{/if}}
     </header>
-    <main class="section columns is-multiline">
+    <main class="section column columns is-multiline">
       {{{body}}}
     </main>
     <script src="./assets/js/index.js"></script>

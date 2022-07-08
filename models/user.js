@@ -16,6 +16,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
   },
+  admin: {
+    type: Boolean,
+  },
 });
 
 UserSchema.pre("save", async function () {

@@ -6,10 +6,14 @@
       Playbook Character Details
     </h3>
     <p>
-  {{> playbook-details/adamant}}
+      {{#if (is playbook "The Adamant")}}
+         {{> playbook-details/adamant}}
+      {{/if}}
     </p>
   </div>
 <div class="column columns is-multiline" id="moves-container">
     <h3 class="title column is-full is-underlined is-uppercase">Moves</h3>
-    {{> playbook-moves/adamant}}
+    {{#if (is playbook "The Adamant")}}
+      {{> playbook-moves/adamant}}
+    {{/if}}
 </div>

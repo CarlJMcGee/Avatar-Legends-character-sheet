@@ -1,0 +1,90 @@
+<section class="column columns is-full">
+  {{! login }}
+  <form class="column columns has-text-centered is-half is-multiline">
+    <h3 class="column title is-full">Existing Players</h3>
+    <div class="column columns is-centered is-multiline">
+      {{! email / username }}
+      <input
+        type="text"
+        name=""
+        id="email-login"
+        class="input column is-two-thirds my-1"
+        placeholder="Email/Username"
+        required
+      />
+
+      {{! password }}
+      <input
+        type="password"
+        name=""
+        id="pass-login"
+        class="input column is-two-thirds my-1"
+        placeholder="Password"
+        required
+      />
+      <input
+        type="submit"
+        value="Login"
+        class="input column is-two-thirds p-0"
+      />
+    </div>
+  </form>
+
+  {{! signup }}
+  <form class="column columns is-multiline has-text-centered is-half">
+    <h3 class="column title is-full">New Players</h3>
+    <div class="column columns is-centered is-multiline">
+      {{! username }}
+      <input
+        type="text"
+        name=""
+        id="username-signup"
+        class="input column is-two-thirds my-1"
+        placeholder="Username"
+        required
+      />
+
+      {{! email }}
+      <input
+        type="text"
+        name=""
+        id="email-signup"
+        class="input column is-two-thirds my-1"
+        placeholder="Email"
+        required
+      />
+
+      {{! password }}
+      <input
+        type="password"
+        name=""
+        id="pass-signup"
+        class="input column is-two-thirds my-1"
+        placeholder="Password 6-20 Characters"
+        minlength="6"
+        maxlength="20"
+        required
+      />
+
+      {{! password val }}
+      <input
+        type="password"
+        name=""
+        id="pass-val-signup"
+        class="input column is-two-thirds my-1"
+        placeholder="Confirm Password"
+        required
+      />
+      <input
+        type="submit"
+        value="Signup"
+        class="input column is-two-thirds my-1 p-0"
+      />
+    </div>
+  </form>
+</section>
+<section class="column">
+  {{#if (is playbook "The Razor")}}
+    Hello
+  {{/if}}
+</section>
