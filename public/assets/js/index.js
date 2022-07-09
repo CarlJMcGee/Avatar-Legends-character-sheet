@@ -41,13 +41,13 @@ const loadCharData = () => {
     playerChar.fightingStyle
       ? (fightingStyle.value = playerChar.fightingStyle)
       : (fightingStyle.value = "");
-    if (document.getElementById(playerChar.training).checked) {
+    if (playerChar.training) {
       document.getElementById(playerChar.training).checked = true;
     }
 
     // statuses
     // pos
-    if (playerChar.posStats) {
+    if (playerChar.posStats.length > 0) {
       playerChar.posStats.map((stat) => {
         if (document.getElementById(stat) !== null) {
           document.getElementById(stat).checked = true;
@@ -55,7 +55,7 @@ const loadCharData = () => {
       });
     }
     //neg
-    if (playerChar.negStats) {
+    if (playerChar.negStats.length > 0) {
       playerChar.negStats.map((stat) => {
         if (document.getElementById(stat) !== null) {
           document.getElementById(stat).checked = true;
@@ -288,15 +288,6 @@ const adamant = () => {
       saveChar();
     });
   });
-
-  // principles
-  //save
-  playerChar.adamant.principles = [];
-  playerChar.adamant.principles.push("Restrant", "Results");
-  saveChar();
-  // load
-  $("h3#principle-1").text(playerChar.adamant.principles[0]);
-  $("h3#principle-2").text(playerChar.adamant.principles[1]);
 };
 
 // save playbook moves

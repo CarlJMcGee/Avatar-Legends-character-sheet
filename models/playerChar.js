@@ -24,7 +24,7 @@ const playerCharSchema = new Schema({
   balance: {
     type: String,
   },
-  posStat: {
+  posStats: {
     type: [String],
   },
   negStats: {
