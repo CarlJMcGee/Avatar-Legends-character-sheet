@@ -1,5 +1,7 @@
 const loginForm = document.querySelector("#login-form");
+const signupForm = document.querySelector("#signup-form");
 
+// login
 const loginFormHandler = async function (e) {
   e.preventDefault();
 
@@ -9,8 +11,6 @@ const loginFormHandler = async function (e) {
     email: email,
     password: pass,
   };
-
-  console.log(`${email} ${pass}`);
 
   try {
     const res = await fetch(`/api/user/login`, {
@@ -38,4 +38,41 @@ const loginFormHandler = async function (e) {
   }
 };
 
+// sign up
+const signupFormHandler = async function (e) {
+  e.preventDefault();
+
+  const username = $("#username-signup").val().trim();
+  const email = $("#email-signup").val().trim();
+  const pass = $("#pass-signup").val().trim();
+  const passVal = $("#pass-val-signup").val().trim();
+  const user = {
+    username: username,
+    email: email,
+    password: pass,
+  };
+
+  if (pass !== passVal) {
+    var passErr = document.createElement("p");
+    passErr.className = "err-login column is-full has-text-danger";
+    passErr.innerHTML = "Passwords must match";
+    $("#signup-input-container").append(passErr);
+  }
+
+  try {
+    const res = await fetch(`/api/user/signup`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    res.ok ? document.location.replace("/") : console.error(`Signup Failed`);
+  } catch (err) {
+    if (err) {
+      console.error(err);
+    }
+  }
+};
+
 $(loginForm).submit(loginFormHandler);
+$(signupForm).submit(signupFormHandler);

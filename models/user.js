@@ -15,6 +15,7 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
+    required: `Must have password`,
   },
   admin: {
     type: Boolean,
