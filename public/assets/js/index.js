@@ -11,15 +11,28 @@ const stats = {
   passion: document.querySelector("select[name='passion']"),
 };
 
-let playerChar = localStorage.getItem("character")
-  ? JSON.parse(localStorage.getItem("character"))
-  : {};
+let playerCharData = async () => {
+  const res = await fetch(`/api/user/data`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
 
-const saveChar = () => {
-  localStorage.setItem("character", JSON.stringify(playerChar));
+  const data = await res.json();
+  return data || {};
 };
 
+const saveChar = async () => {
+  const res = await fetch(`/api/user/data`, {
+    method: "POST",
+    body: JSON.stringify(playerChar),
+    headers: { "Content-Type": "application/json" },
+  });
+};
+
+let playerChar;
+
 const loadCharData = () => {
+  console.log(playerChar);
   if (Object.entries(playerChar).length > 0) {
     $("#name").val(playerChar.name);
     playbookItems.value = playerChar.playbook;
@@ -28,7 +41,9 @@ const loadCharData = () => {
     playerChar.fightingStyle
       ? (fightingStyle.value = playerChar.fightingStyle)
       : (fightingStyle.value = "");
-    document.getElementById(playerChar.training).checked = true;
+    if (document.getElementById(playerChar.training).checked) {
+      document.getElementById(playerChar.training).checked = true;
+    }
 
     // statuses
     // pos
@@ -360,4 +375,7 @@ const loadPlaybook = (playbook) => {
   }
 };
 
-loadCharData();
+(async function () {
+  playerChar = await playerCharData();
+  loadCharData();
+})();

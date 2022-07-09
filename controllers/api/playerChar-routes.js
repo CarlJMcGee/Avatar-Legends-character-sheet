@@ -2,14 +2,14 @@ const router = require("express").Router();
 const PlayerChar = require("../../models/playerChar");
 const User = require("../../models/user");
 const { compare } = require("bcrypt");
+const session = require("express-session");
 
 // get user's data
-router.get("/user/data", async (req, res) => {
+router.get("/user/data", async ({ body, session }, res) => {
   // get player character object
-  console.log(req.session);
   try {
     const playerChar = await PlayerChar.findOne({
-      user: req.body.user,
+      user: session.user.id,
     }).populate({
       path: "user",
       select: "-_v",
@@ -17,7 +17,7 @@ router.get("/user/data", async (req, res) => {
 
     // if no player data exists, create a new document
     if (!playerChar) {
-      const newPlayerChar = await PlayerChar.create(req.body);
+      const newPlayerChar = await PlayerChar.create(body);
 
       res.json(newPlayerChar);
       return;
@@ -28,6 +28,17 @@ router.get("/user/data", async (req, res) => {
       console.error(err);
     }
   }
+});
+
+// save character data
+router.post("/user/data", async ({ body, session }, res) => {
+  const playerChar = await PlayerChar.findOneAndUpdate(
+    {
+      user: session.user.id,
+    },
+    body
+  );
+  res.status(200).send(`character sheet updated`);
 });
 
 // list all character sheets
