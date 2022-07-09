@@ -69,6 +69,7 @@ const loadCharData = () => {
     stats.harmony.value = playerChar.stats.harmony;
     stats.passion.value = playerChar.stats.passion;
     // fatigue
+    $("#fatigue-counter").text($("#fatigue-range").val());
     if (playerChar.fatigue) {
       playerChar.fatigue.map((marker) => {
         if (document.querySelector(`input[name='${marker}']`)) {
@@ -236,11 +237,12 @@ $(function () {
 $(function () {
   $(".fatigue-markers").change(function (e) {
     e.preventDefault();
-    playerChar.fatigue = [];
-    let fatigue = $(".fatigue-markers:checked").map(function (marker) {
-      playerChar.fatigue.push(this.name);
-    });
-    saveChar();
+    $("#fatigue-counter").text(e.target.value);
+    // playerChar.fatigue = [];
+    // let fatigue = $(".fatigue-markers:checked").map(function (marker) {
+    //   playerChar.fatigue.push(this.name);
+    // });
+    // saveChar();
   });
 });
 
