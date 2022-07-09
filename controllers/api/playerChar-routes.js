@@ -41,6 +41,34 @@ router.post("/user/data", async ({ body, session }, res) => {
   res.status(200).send(`character sheet updated`);
 });
 
+// delete charcter sheet
+router.delete("/user/data", async ({ session }, res) => {
+  if (!session.loggedIn) {
+    res.status(400).send(`Not logged in`);
+    return;
+  }
+
+  const deletePlayerChar = await PlayerChar.findOneAndDelete({
+    user: session.user.id,
+  });
+  const playerChar = await PlayerChar.findOne({ user: session.user.id });
+
+  if (!playerChar) {
+    res.status(200).send(`Player Character Sheet Deleted`);
+    return;
+  }
+
+  res.status(500).send(`Character Sheet Failed to Delete`);
+});
+
+// !delete all character sheets
+router.delete("/user/delete/all/sheets", async ({ body }, res) => {
+  if (body.areYouSure) {
+    await PlayerChar.deleteMany();
+    res.send(`All Debug Character Sheets Deleted`);
+  }
+});
+
 // list all character sheets
 router.get("/user/char-sheets", async (req, res) => {
   try {
@@ -63,6 +91,28 @@ router.get("/users/", async (req, res) => {
     res.json(users);
   } catch (err) {
     if (err) console.error(err);
+  }
+});
+
+// delete user
+router.delete("/user/#:id/", async (req, res) => {
+  await PlayerChar.findOneAndDelete({ user: req.params.id });
+  await User.findOneAndDelete({ id: req.params.id });
+  const user = await User.findOne({ id: req.params.id });
+
+  if (!user) {
+    res.send(`User deleted`);
+    return;
+  }
+  res.status(500).send(`user not deleted`);
+});
+
+// !delete all users
+router.delete("/destroy/all/humans", async (req, res) => {
+  if (req.body.areYouSure) {
+    await PlayerChar.deleteMany();
+    await User.deleteMany();
+    res.send(`All users deleted`);
   }
 });
 
@@ -123,6 +173,7 @@ router.post("/user/signup", async ({ body, session }, res) => {
       id: user.id,
       username: user.username,
     };
+    const newPlayerChar = await PlayerChar.create({ user: session.user.id });
     session.save((err) => {
       if (err) {
         console.error(err);

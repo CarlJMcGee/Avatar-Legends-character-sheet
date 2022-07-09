@@ -6,23 +6,39 @@ const playerCharSchema = new Schema({
     ref: "User",
     required: `Must have a userId`,
   },
+  name: {
+    type: String,
+    default: "",
+  },
   playbook: {
     type: String,
+    default: "",
   },
   background: {
     type: String,
+    default: "",
   },
   demeanor: {
     type: String,
+    default: "",
   },
   fightingStyle: {
     type: String,
+    default: "",
   },
   training: {
     type: String,
+    default: "",
   },
   balance: {
-    type: String,
+    principle1: {
+      type: String,
+      default: "",
+    },
+    principle2: {
+      type: String,
+      default: "",
+    },
   },
   posStats: {
     type: [String],
@@ -34,7 +50,25 @@ const playerCharSchema = new Schema({
     type: [String],
   },
   fatigue: {
-    type: [String],
+    type: String,
+  },
+  stats: {
+    creativity: {
+      type: String,
+      default: "",
+    },
+    focus: {
+      type: String,
+      default: "",
+    },
+    harmony: {
+      type: String,
+      default: "",
+    },
+    passion: {
+      type: String,
+      default: "",
+    },
   },
 });
 

@@ -265,65 +265,24 @@
       <br />
       {{> principle-1}}
       <div class="columns is-multiline">
-        <div class="control column is-full pb-0">
-          <input
-            type="radio"
-            name="balance"
-            value="3"
-            id="balance3"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="2"
-            id="balance2"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="1"
-            id="balance1"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="0"
-            id="balance0"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="-1"
-            id="balance-1"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="-2"
-            id="balance-2"
-            class="mx-3"
-          />
-          <input
-            type="radio"
-            name="balance"
-            value="-3"
-            id="balance-3"
-            class="mx-3"
-          />
+        <div class="columns column p-0 mb-0 mt-1">
+          <label for="balance3" class="column pl-0">3</label>
+          <label for="balance2" class="column">2</label>
+          <label for="balance1" class="column">1</label>
+          <label for="balance0" class="column">0</label>
+          <label for="balance-1" class="column">-1</label>
+          <label for="balance-2" class="column">-2</label>
+          <label for="balance-3" class="column pr-0">-3</label>
         </div>
-        <div class="columns column is-gapless py-0">
-          <label for="balance3" class="column px-0">3</label>
-          <label for="balance2" class="column px-0">2</label>
-          <label for="balance1" class="column px-0">1</label>
-          <label for="balance0" class="column px-0">0</label>
-          <label for="balance-1" class="column px-0">-1</label>
-          <label for="balance-2" class="column px-0">-2</label>
-          <label for="balance-3" class="column px-0">-3</label>
+        <input type="range" name="balance" id="balace-range" min="-3" max="3" value="0" class="column is-full">
+        <div class="columns column p-0">
+          <label for="balance3" class="column pl-0">-3</label>
+          <label for="balance2" class="column">-2</label>
+          <label for="balance1" class="column">-1</label>
+          <label for="balance0" class="column">0</label>
+          <label for="balance-1" class="column">1</label>
+          <label for="balance-2" class="column">2</label>
+          <label for="balance-3" class="column pr-0">3</label>
         </div>
       </div>
       {{> principle-2}}
@@ -535,3 +494,4 @@
   <!-- fighting techniques -->
   <div class="column is-three-fifths"></div>
 </section>
+<script src="./assets/js/index.js"></script>

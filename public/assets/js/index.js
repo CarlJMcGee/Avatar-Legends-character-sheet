@@ -122,12 +122,13 @@ $(function () {
 
 // get playbook
 $(document).ready(function () {
-  $(playbookItems).change(function (e) {
+  $(playbookItems).change(async function (e) {
     e.preventDefault();
     let playbook = $("select.playbook-items option:selected").text();
     playerChar.playbook = playbook;
     loadPlaybook(playerChar.playbook);
-    saveChar();
+    await saveChar();
+    document.location.reload();
   });
 });
 
@@ -238,11 +239,8 @@ $(function () {
   $(".fatigue-markers").change(function (e) {
     e.preventDefault();
     $("#fatigue-counter").text(e.target.value);
-    // playerChar.fatigue = [];
-    // let fatigue = $(".fatigue-markers:checked").map(function (marker) {
-    //   playerChar.fatigue.push(this.name);
-    // });
-    // saveChar();
+    playerChar.fatigue = e.target.value;
+    saveChar();
   });
 });
 
@@ -250,7 +248,8 @@ $(function () {
 $(function () {
   $("input[name='balance']").change(function (e) {
     e.preventDefault();
-    playerChar.balance = this.value;
+    playerChar.balance.principle1 = `-${this.value}`;
+    playerChar.balance.principle2 = `${this.value}`;
     saveChar();
   });
 });

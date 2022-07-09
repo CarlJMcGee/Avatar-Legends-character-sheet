@@ -13,7 +13,7 @@ router.use("//", ({ session }, res, next) => {
 });
 
 router.get("/", async ({ session }, res) => {
-  const playerChar = await PlayerChar.findById("62c87ff066517a0f222a7b8b");
+  const playerChar = await PlayerChar.findOne({ user: session.user.id });
 
   res.render("character-stats", {
     loggedIn: session.loggedIn,
@@ -22,8 +22,6 @@ router.get("/", async ({ session }, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  const playerChar = await PlayerChar.findById("62c87c610238d97b36aa3b47");
-
   res.render("login-page");
 });
 
