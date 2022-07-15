@@ -20,7 +20,11 @@ const routes = require("./controllers");
 const app = express();
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/avatar-legends-db"
+  process.env.MONGODB_URI || "mongodb://localhost:27017/avatar-legends-db",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
 );
 mongoose.set("debug", true);
 
