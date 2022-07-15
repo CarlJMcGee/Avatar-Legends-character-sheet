@@ -41,7 +41,7 @@ app.use(
     },
     store: MongoStore.create({
       mongoUrl:
-        env.process.MONGODB_URI ||
+        process.env.MONGODB_URI ||
         "mongodb://localhost:27017/avatar-legends-db",
     }),
   })
