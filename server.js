@@ -16,6 +16,7 @@ const hbs = expressHandlebars.create({
 const { v4: uuid } = require("uuid");
 
 const routes = require("./controllers");
+const { env } = require("process");
 
 const app = express();
 
@@ -39,7 +40,9 @@ app.use(
       maxAge: hours * 3600000,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/avatar-legends-db",
+      mongoUrl:
+        process.env.MONGODB_URI ||
+        "mongodb://localhost:27017/avatar-legends-db",
     }),
   })
 );
