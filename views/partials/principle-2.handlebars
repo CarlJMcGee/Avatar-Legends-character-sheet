@@ -1,3 +1,33 @@
 <h3 class="has-text-right is-size-3" id="principle-2">
-  Principle 2
+  {{#if (is playbook "The Adamant")}}
+    Results
+  {{else if (is playbook "The Bold")}}
+    Confidance
+  {{else if (is playbook "The Guardian")}}
+    Trust
+  {{else if (is playbook "The Hammer")}}
+    Care
+  {{else if (is playbook "The Icon")}}
+    Freedom
+  {{else if (is playbook "The Idealist")}}
+    Action
+  {{else if (is playbook "The Pillar")}}
+    Leadership
+  {{else if (is playbook "The Prodigy")}}
+    Community
+  {{else if (is playbook "The Rogue")}}
+    Survival
+  {{else if (is playbook "The Successor")}}
+    Progress
+  {{else if (is playbook "The Destined")}}
+    Determinastion
+  {{else if (is playbook "The Elder")}}
+    Humility
+  {{else if (is playbook "The Foundling")}}
+    Heritage
+  {{else if (is playbook "The Razor")}}
+    Connection
+  {{else}}
+    Principle 2
+  {{/if}}
 </h3>

@@ -69,14 +69,8 @@ const loadCharData = () => {
     stats.harmony.value = playerChar.stats.harmony;
     stats.passion.value = playerChar.stats.passion;
     // fatigue
+    $("#fatigue-range").val(playerChar.fatigue);
     $("#fatigue-counter").text($("#fatigue-range").val());
-    if (playerChar.fatigue) {
-      playerChar.fatigue.map((marker) => {
-        if (document.querySelector(`input[name='${marker}']`)) {
-          document.querySelector(`input[name='${marker}']`).checked = true;
-        }
-      });
-    }
 
     // balance
     if (
@@ -311,55 +305,55 @@ const loadPlaybook = (playbook) => {
       break;
 
     case "The Bold":
-      bold();
+      playerChar.playbook = playbook;
       break;
 
     case "The Guardian":
-      guardian();
+      playerChar.playbook = playbook;
       break;
 
     case "The Hammer":
-      hammer();
+      playerChar.playbook = playbook;
       break;
 
     case "The Icon":
-      icon();
+      playerChar.playbook = playbook;
       break;
 
     case "The Idealist":
-      idealist();
+      playerChar.playbook = playbook;
       break;
 
     case "The Pillar":
-      pillar();
+      playerChar.playbook = playbook;
       break;
 
     case "The Prodigy":
-      prodigy();
+      playerChar.playbook = playbook;
       break;
 
     case "The Rogue":
-      rouge();
+      playerChar.playbook = playbook;
       break;
 
     case "The Successor":
-      successor();
+      playerChar.playbook = playbook;
       break;
 
     case "The Destined":
-      destined();
+      playerChar.playbook = playbook;
       break;
 
     case "The Elder":
-      elder();
+      playerChar.playbook = playbook;
       break;
 
     case "The Foundling":
-      foundling();
+      playerChar.playbook = playbook;
       break;
 
     case "The Razor":
-      razor();
+      playerChar.playbook = playbook;
       break;
 
     default:
