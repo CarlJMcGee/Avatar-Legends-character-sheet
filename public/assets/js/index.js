@@ -260,6 +260,91 @@ $(function () {
   });
 });
 
+// get fighting techniques
+$(function () {
+  // technique 1
+  $("#technique-1").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-1").val(),
+      stance: $("[name=stance-1]:checked").val(),
+      level: $(".technique-level-1 option:selected").text(),
+      description: $(".technique-desc-1").val(),
+    };
+    console.log(technique);
+  });
+});
+
+$(function () {
+  // technique 2
+  $("#technique-2").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-2").val(),
+      stance: $("[name=stance-2]:checked").val(),
+      level: $(".technique-level-2 option:selected").text(),
+      description: $(".technique-desc-2").val(),
+    };
+    console.log(technique);
+  });
+});
+
+$(function () {
+  // technique 3
+  $("#technique-3").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-3").val(),
+      stance: $("[name=stance-3]:checked").val(),
+      level: $(".technique-level-3 option:selected").text(),
+      description: $(".technique-desc-3").val(),
+    };
+    console.log(technique);
+  });
+});
+
+$(function () {
+  // technique 4
+  $("#technique-4").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-4").val(),
+      stance: $("[name=stance-4]:checked").val(),
+      level: $(".technique-level-4 option:selected").text(),
+      description: $(".technique-desc-4").val(),
+    };
+    console.log(technique);
+  });
+});
+
+$(function () {
+  // technique 5
+  $("#technique-5").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-5").val(),
+      stance: $("[name=stance-5]:checked").val(),
+      level: $(".technique-level-5 option:selected").text(),
+      description: $(".technique-desc-5").val(),
+    };
+    console.log(technique);
+  });
+});
+
+$(function () {
+  // technique 6
+  $("#technique-6").change(function (e) {
+    e.preventDefault();
+    const technique = {
+      name: $(".technique-name-6").val(),
+      stance: $("[name=stance-6]:checked").val(),
+      level: $(".technique-level-6 option:selected").text(),
+      description: $(".technique-desc-6").val(),
+    };
+    console.log(technique);
+  });
+});
+
 // fill playbook details
 
 // playbook data
