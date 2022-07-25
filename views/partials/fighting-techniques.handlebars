@@ -1,0 +1,242 @@
+<div class="column columns is-three-fifths is-centered is-multiline">
+  <h3 class="title column has-text-centered">Fight Technique</h3>
+  {{! mastered tech }}
+  <div>
+    {{#if (is playbook "The Adamant")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Pinpoint Aim
+        </h3>
+        <h4 class="column has-text-weight-semibold is-full">Defend and Maneuver</h4>
+        <p class="column is-full">
+          Take the time you need to line up a perfect shot; become Prepared. In
+          the next exchange, if you advance and attack, roll with Focus or Pa s
+          s ion , your choice. If you use Strike, you do not have to mark
+          fatigue to choose what you inflict.
+        </p>
+      </div>
+
+    {{else if (is playbook "The Bold")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Tag Team
+        </h3>
+        <h4 class="column has-text-weight-semibold is-full">Defend and maneuver</h4>
+        <p class="column is-full">Work with an ally against the same foe; choose
+          an engaged foe and an ally—double any fatigue, conditions, or balance
+          shifts that ally inflicts upon that foe.</p>
+      </div>
+
+    {{else if (is playbook "The Guardian")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Divert
+        </h3>
+        <h4 class="column has-text-weight-semibold is-full">Defend and Maneuver</h4>
+        <p class="column is-full">Step into the way of blows intended for
+          allies; when any ally within reach suffers a blow this exchange, you
+          can suffer it for them. If you also use Retaliate this ex- change,
+          deal an additional 1-fatigue each time.</p>
+      </div>
+
+    {{else if (is playbook "The Hammer")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Overwhelm
+        </h3>
+        <h4 class="column is-full">Advance and Attack</h4>
+        <p class="column is-full">Throw a punch with all your weight behind it;
+          mark 3-fatigue to inflict Stunned on an engaged foe.
+        </p>
+      </div>
+
+    {{else if (is playbook "The Icon")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Wall of Perfection
+        </h3>
+        <h4 class="column has-text-weight-semibold is-full">Defend and Maneuver</h4>
+        <p class="column is-full">Create a perfect wall of defense around
+          yourself and any allies direct- ly next to you; mark 1-fatigue to
+          block a single attack towards the wall or keep an enemy at bay who
+          tries to penetrate the wall.</p>
+      </div>
+
+    {{else if (is playbook "The Idealist")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Disorient
+        </h3>
+        <h4 class="column is-full">Attack and Advance</h4>
+        <p class="column is-full">Pummel an engaged foe with quick blows; mark
+          1-fatigue to shift their balance away from center.</p>
+      </div>
+
+    {{else if (is playbook "The Pillar")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Slide Around the Blow
+        </h3>
+        <h4 class="column is-full">Evade and Observe</h4>
+        <p class="column is-full">You move perfectly, slipping past strikes and
+          demand- ing an opponent's attention; a foe you are engaged with must
+          remain engaged with you and can only use techniques against you in the
+          next exchange. If no foe is engaged with you, you may slip through the
+          fight to en- gage a new foe (no foe may mark fatigue to stop you).</p>
+      </div>
+
+    {{else if (is playbook "The Prodigy")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Steady Stance
+        </h3>
+        <h4 class="column has-text-weight-semibold is-full">Defend and Maneuver</h4>
+        <p class="column is-full">Assume a strong, steady stance; any foes
+          engaged with you who chose to advance and attack this exchange must
+          mark 1-fatigue. Negate the first condition or negative status
+          inflicted on you in this exchange. If no conditions or negative
+          statuses were inflicted on you in this exchange, become Empowered for
+          the next exchange.</p>
+      </div>
+
+    {{else if (is playbook "The Rogue")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Sweep the Leg
+        </h3>
+        <h4 class="column is-full">Advance and Attack</h4>
+        <p class="column is-full">You attack where an enemy is weakest or most
+          off-balance; if your foe has a total of 3 or more fatigue and
+          conditions marked, inflict 2-fatigue. If your foe has fewer than 3
+          total fatigue and conditions marked, inflict 2-fatigue, but you must
+          mark fatigue as well.
+        </p>
+      </div>
+
+    {{else if (is playbook "The Successor")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Break
+        </h3>
+        <h4 class="column is-full">Evade and Observe</h4>
+        <p class="column is-full">
+          Target a foe's vulnerable equipment; render it useless or broken—
+          possibly inflicting or overcoming a fictionally appropriate status
+          (ex: Impaired).
+        </p>
+      </div>
+
+    {{else if (is playbook "The Destined")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Anticipate
+        </h3>
+        <h4 class="column is-full">Evade and Observe</h4>
+        <p class="column is-full">
+          Study a nearby foe to learn where their momentum will take them next.
+          Declare the approach they are tending towards. In the next exchange,
+          that foe must use that approach or mark a condition.
+        </p>
+      </div>
+
+    {{else if (is playbook "The Elder")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Patience
+        </h3>
+        <h4 class="column is-full">Evade and Maneuver</h4>
+        <p class="column is-full">
+          You wait until the perfect moment to act. Mark 1-fatigue to gain
+          Prepared and use an advance and attack technique, paying all its costs
+          as normal. Mark another fa- tigue to allow a companion engaged with
+          that same foe to also use an advance and attack technique against them
+          as well, also paying all costs as appropriate.
+        </p>
+      </div>
+
+    {{else if (is playbook "The Foundling")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Feel the Flow
+        </h3>
+        <h4 class="column is-full">Evade and Maneuver</h4>
+        <p class="column is-full">
+          You take pause to feel the flow of battle and study the way your op-
+          position fights. You become Favored. If they share a training with
+          you, learn their principle. If you know their principle, clear
+          1-fatigue (even if they do not share the same training).
+        </p>
+      </div>
+
+    {{else if (is playbook "The Razor")}}
+      <div class="column is-full columns is-multiline is-centered is-gapless">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Lure
+        </h3>
+        <h4 class="column is-full">Evade and Observe</h4>
+        <p class="column is-full">You put a foe off-balance by luring them in.
+          Name a foe you lure; if they don't attempt to either inflict fatigue,
+          conditions, balance shifts, or negative statuses on you by the end of
+          this exchange, they must mark 2-fatigue. If they do attempt to harm
+          you this exchange, you become Favored for the next exchange.</p>
+      </div>
+
+    {{else}}
+      <div class="column is-full columns is-multiline is-centered">
+        <h3
+          class="column has-text-weight-semibold is-full is-size-5 has-text-weight-bold"
+          id="mastered-tech"
+        >
+          Mastered Technique
+        </h3>
+      </div>
+
+    {{/if}}
+    <br>
+  </div>
+
+  {{> blank-technique}}
+
+</div>
