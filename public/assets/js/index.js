@@ -102,6 +102,9 @@ const loadCharData = () => {
       }
     });
   }
+
+  // techniques
+  playerChar.techniques = playerChar.techniques || {};
 };
 
 // get name
@@ -271,7 +274,9 @@ $(function () {
       level: $(".technique-level-1 option:selected").text(),
       description: $(".technique-desc-1").val(),
     };
-    console.log(technique);
+    playerChar.techniques.t1 = technique;
+    saveChar();
+    console.log(playerChar.techniques);
   });
 });
 

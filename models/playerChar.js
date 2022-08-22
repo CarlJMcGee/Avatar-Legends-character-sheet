@@ -69,6 +69,17 @@ const playerCharSchema = new Schema({
       type: String,
       default: "",
     },
+    techniques: {
+      type: Object,
+      default: {
+        t1: {},
+        t2: {},
+        t3: {},
+        t4: {},
+        t5: {},
+        t6: {},
+      },
+    },
   },
 });
 
