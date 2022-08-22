@@ -1,4 +1,3 @@
-
 # Avatar Legends Unofficial Character Sheet
 
 [![license badge](https://img.shields.io/badge/license-MIT--License-blue)](#License)
@@ -54,4 +53,7 @@ If you have any issues, submit them to my [Github](https://github.com/CarlJMcGee
 or
 
 If you have any other questions or inquiries, you can contact me at [carl.jack.mcgee@gmail.com](mailto:carl.jack.mcgee@gmail.com)
-  
+
+## Check it out >>[Here](https://avatar-charactersheet.herokuapp.com/)<<
+
+<img src="./avatarlegends.png" width="1000px">
