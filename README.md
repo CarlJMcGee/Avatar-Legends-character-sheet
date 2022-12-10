@@ -1,4 +1,4 @@
-# Avatar Legends Unofficial Character Sheet
+# Avatar Legends Unofficial Character Sheet Site
 
 [![license badge](https://img.shields.io/badge/license-MIT--License-blue)](#License)
 
